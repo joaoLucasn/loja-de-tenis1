@@ -1,0 +1,427 @@
+/* Reset básico e configuração da fonte */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+    color: #e0e0e0;
+}
+
+/* Contêiner centralizado para o conteúdo */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Estilo do cabeçalho */
+header {
+    background: rgba(0, 0, 0, 0.7);
+    color: #e0e0e0;
+    padding: 20px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 10;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Alinha logo e navegação nos extremos */
+    position: relative;
+}
+
+
+h1 {
+    flex: 2; /* Para centralizar o nome da empresa */
+    text-align: center;
+    margin: 0;
+    font-size: 2.5em;
+    font-weight: 700;
+}
+
+nav {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end; /* Alinha a navegação à direita */
+}
+
+nav a {
+    color: #e0e0e0;
+    text-decoration: none;
+    margin: 0 20px;
+    font-weight: 500;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+nav a:hover {
+    color: #f39c12;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilo das seções */
+section {
+    padding: 60px 20px;
+}
+
+#products {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 40px 20px;
+    border-radius: 10px;
+}
+
+#about, #contact {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 40px 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+/* Grid para produtos */
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Estilo dos produtos */
+.product {
+    border: 1px solid #444;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #333;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer; /* Indica que é clicável */
+}
+
+.product img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.product h3 {
+    color: #f39c12;
+    margin: 15px 0 10px;
+    font-size: 1.5em;
+}
+
+.product p {
+    color: #ccc;
+    font-size: 1em;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Estilo do rodapé */
+footer {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #e0e0e0;
+    text-align: center;
+    padding: 20px 0;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 10;
+}
+
+footer p {
+    margin: 0;
+    font-size: 1em;
+}
+
+/* Estilos do Modal */
+.modal {
+    display: none; /* Oculto por padrão */
+    position: fixed; /* Fica fixo na tela */
+    z-index: 1000; /* Fica sobre outros conteúdos */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Permite rolar se necessário */
+    background-color: rgba(0, 0, 0, 0.8); /* Fundo escuro com opacidade */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+}
+
+.modal-content img {
+    width: 100%;
+    height: auto;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content h3,
+.modal-content p {
+    text-align: center;
+}
+
+/* Estilos do Modal */
+.modal {
+    display: none; /* Oculto por padrão */
+    position: fixed; /* Fica fixo na tela */
+    z-index: 1000; /* Fica sobre outros conteúdos */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Remove rolagem */
+    background-color: rgba(0, 0, 0, 0.8); /* Fundo escuro com opacidade */
+    opacity: 0; /* Inicialmente invisível */
+    transition: opacity 0.3s ease; /* Transição suave para a opacidade */
+}
+
+/* Animação de exibição do modal */
+.modal.modal-show {
+    display: block;
+    opacity: 1; /* Visível quando adicionado a classe 'modal-show' */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    margin: 10% auto; /* Centraliza verticalmente e horizontalmente */
+    position: relative;
+    overflow: hidden; /* Garante que o conteúdo não ultrapasse as bordas */
+    transform: scale(0.9); /* Inicialmente reduzido */
+    transition: transform 0.3s ease; /* Transição suave para a transformação */
+    animation: bounceIn 0.5s; /* Adiciona a animação de "pulinho" */
+}
+
+/* Animação de "pulinho" */
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.modal-content img {
+    width: 100%; /* Faz a imagem ocupar a largura total do modal */
+    height: auto; /* Mantém a proporção da imagem */
+    display: block;
+    margin: 0 auto; /* Centraliza a imagem horizontalmente */
+}
+
+.close {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+}
+
+.modal-content h3,
+.modal-content p {
+    text-align: center;
+    margin-top: 10px;
+}
+/* Estilo do carrossel */
+#carousel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    margin-bottom: 40px; /* Espaçamento entre o carrossel e a seção de produtos */
+}
+
+.carousel-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.carousel-slide {
+    display: flex;
+    width: calc(1080px * 6 + 30px * 5); /* Largura total do carrossel, incluindo o espaço entre imagens */
+    height: 1080px; /* Altura do carrossel */
+    transition: transform 0.5s ease;
+}
+
+.carousel-slide img {
+    width: 1080px; /* Largura das imagens */
+    height: 1080px; /* Altura das imagens */
+    border-radius: 10px;
+    margin-right: 30px; /* Espaço entre imagens */
+}
+
+.carousel-slide img:last-child {
+    margin-right: 0; /* Remove o espaço extra após a última imagem */
+}
+
+.carousel-prev, .carousel-next {
+    position: absolute;
+    top: 50%;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    border-radius: 50%;
+    user-select: none;
+    transform: translateY(-50%);
+}
+
+.carousel-prev {
+    left: 10px;
+}
+
+.carousel-next {
+    right: 10px;
+}
+
+/* Restante do CSS para cabeçalho, seções, produtos e modal */
+/* Estilo para a seção Sobre */
+#about {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 60px 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    color: #e0e0e0;
+}
+
+#about h2 {
+    font-size: 2.5em;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #f39c12;
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-size: 1.1em;
+}
+
+.about-content p {
+    margin: 15px 0;
+    text-align: justify;
+}
+
+.about-content strong {
+    color: #f39c12; /* Destaca o nome da loja */
+}
+/* Estilo para a seção Contato */
+#contact {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 60px 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    color: #e0e0e0;
+}
+
+#contact h2 {
+    font-size: 2.5em;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #f39c12;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    font-size: 1.1em;
+}
+
+.contact-item i {
+    font-size: 1.5em;
+    margin-right: 10px;
+    color: #f39c12;
+}
+
+.contact-item p {
+    margin: 0;
+}
+
+.contact-item a {
+    color: #e0e0e0;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.contact-item a:hover {
+    color: #f39c12;
+}
+
+.social-media {
+    text-align: center;
+}
+
+.social-media p {
+    margin-bottom: 10px;
+}
+
+.social-media a {
+    display: inline-block;
+    margin: 0 10px;
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: color 0.3s;
+}
+
+.social-media a:hover {
+    color: #f39c12;
+}
+
+/* Inclua Font Awesome para ícones */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
