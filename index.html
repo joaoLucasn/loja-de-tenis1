@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja de tenis</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Loja de tenis</h1>
+            <nav>
+                <a href="#products">Produtos</a>
+                <a href="#about">Sobre</a>
+                <a href="#contact">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="carousel">
+        <div class="carousel-container">
+            <div class="carousel-slide">
+                <img src="slide1.jpg" alt="Imagem 1">
+                <img src="slide2.jpg" alt="Imagem 2">
+                <img src="slide3.jpg" alt="Imagem 3">
+                <img src="slide4.jpg" alt="Imagem 4">
+                <img src="slide5.jpg" alt="Imagem 5">
+                <img src="slide6.jpg" alt="Imagem 6">
+                <!-- Adicione mais imagens conforme necessário -->
+            </div>
+            <span class="carousel-prev" onclick="moveSlide(-1)">&#10094;</span>
+            <span class="carousel-next" onclick="moveSlide(1)">&#10095;</span>
+        </div>
+    </section>
+
+    <section id="products">
+        <div class="container">
+            <h2>Produtos</h2>
+            <div class="products">
+                <div class="product" onclick="openModal('produto1.jpg', 'Produto 1', 'Descrição do produto 1.')">
+                    <img src="produto1.jpg" alt="Produto 1">
+                    <h3>Produto 1</h3>
+                    <p>Descrição do produto 1.</p>
+                </div>
+                <div class="product" onclick="openModal('produto2.jpg', 'Produto 2', 'Descrição do produto 2.')">
+                    <img src="produto2.jpg" alt="Produto 2">
+                    <h3>Produto 2</h3>
+                    <p>Descrição do produto 2.</p>
+                </div>
+                <div class="product" onclick="openModal('produto3.jpg', 'Produto 3', 'Descrição do produto 3.')">
+                    <img src="produto3.jpg" alt="Produto 3">
+                    <h3>Produto 3</h3>
+                    <p>Descrição do produto 3.</p>
+                </div>
+                <!-- Adicione mais produtos conforme necessário -->
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>Sobre Nós</h2>
+            <div class="about-content">
+                <p>Bem-vindo à <strong>[Nome da Loja]</strong>, sua fonte confiável para os tênis mais estilosos e confortáveis do mercado. Fundada com a missão de oferecer uma experiência única de compra, nossa loja é o lugar onde a moda e a funcionalidade se encontram.</p>
+                <p>Na <strong>[Nome da Loja]</strong>, acreditamos que um bom par de tênis pode transformar qualquer look e proporcionar o conforto que você merece. Com uma curadoria cuidadosa das marcas mais renomadas e tendências de ponta, garantimos que você encontre o tênis perfeito para cada ocasião.</p>
+                <p>Nosso compromisso é com a qualidade e a satisfação do cliente. Desde o momento em que você entra em nossa loja até o instante em que seus novos tênis chegam à sua casa, estamos aqui para oferecer um atendimento excepcional e uma experiência de compra inesquecível.</p>
+                <p>Explore nossa coleção e descubra por que <strong>[Nome da Loja]</strong> é a escolha preferida para os amantes de tênis. Estamos ansiosos para ajudá-lo a encontrar o par perfeito que se encaixa no seu estilo e estilo de vida!</p>
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contato</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fa fa-envelope"></i>
+                    <p>Email: <a href="mailto:contato@minhaempresa.com">contato@minhaempresa.com</a></p>
+                </div>
+                <div class="contact-item">
+                    <i class="fa fa-phone"></i>
+                    <p>Telefone: <a href="tel:(11) 99999-9999">(11) 99999-9999</a></p>
+                </div>
+                <div class="contact-item">
+                    <i class="fa fa-map-marker"></i>
+                    <p>Endereço: Rua Exemplo, 123, São Paulo, SP</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fa fa-clock"></i>
+                    <p>Horário de Atendimento: Segunda a Sexta, 9h às 18h</p>
+                </div>
+            </div>
+            <div class="social-media">
+                <p>Siga-nos:</p>
+                <a href="https://facebook.com/minhaempresa" target="_blank"><i class="fa fa-facebook"></i> Facebook</a>
+                <a href="https://instagram.com/minhaempresa" target="_blank"><i class="fa fa-instagram"></i> Instagram</a>
+            </div>
+        </div>
+    </section>
+    
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Minha Empresa. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img id="modalImage" src="" alt="Imagem do produto">
+            <h3 id="modalTitle">Título do Produto</h3>
+            <p id="modalDescription">Descrição do produto.</p>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
